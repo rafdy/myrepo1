@@ -13,14 +13,13 @@ function formattime(s) {
 		var min = (s / 60).toFixedDown(0);
 		var sek = ((s / 60) - min) * 60;
         var strtime = ''+min+' min. '+Math.round(sek)+' sek.';
-	    } else {	
+	} else {	
 		var min = (s / 60).toFixedDown(0);
 		var sek = ((s / 60) - min) * 60;
 		var godz = (min / 60).toFixedDown	(0);
 		var min2 = ((min / 60) - godz) * 60;
-		
-        var strtime = ''+godz+' godz. '+Math.round(min2)+' min. '+Math.round(sek)+' sek.';
-    	}
+		var strtime = ''+godz+' godz. '+Math.round(min2)+' min. '+Math.round(sek)+' sek.';
+    }
     return strtime;
 }
 
