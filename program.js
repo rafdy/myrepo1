@@ -1,5 +1,8 @@
+var os = require('os');
+var OSinfo = require('./osinfo');
+
 process.stdin.setEncoding('utf-8');
-process.stdout.write('Write /nodever to see node version, /langsys to see system language and /exit to exit the app\n');
+process.stdout.write('Write /nodever to see node version, /langsys to see system language, /getOSinfo to see OS information and /exit to exit the app\n');
 if (process.env.LANG === undefined) {
 	process.stdout.write('Warning: Please note that system language is not defined in your system enviromental variables!\n');
 }
@@ -11,15 +14,18 @@ process.stdin.on('readable', function() {
     		case '/exit':
         		process.stdout.write('Quitting app!\n');
 				process.exit();
-	       	break;
+	       		break;
     		case '/nodever':
         		process.stdout.write(process.versions.node + '\n');
-        	break;
+        		break;
         	case '/langsys':
         		process.stdout.write(process.env.LANG + '\n');
-        	break;
+        		break;
+        	case '/getOSinfo':
+        		OSinfo.print();
+        		break;
     		default:
-        		process.stderr.write('Wrong instruction!\n');
+    			process.stderr.write('Wrong instruction!\n');
 		}
 	}
 });
