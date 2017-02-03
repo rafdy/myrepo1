@@ -10,8 +10,8 @@ process.stdin.on('readable', function() {
     	switch (instruction) {
     		case '/exit':
         		process.stdout.write('Quitting app!\n');
-            	process.exit();
-        	break;
+				process.exit();
+	       	break;
     		case '/nodever':
         		process.stdout.write(process.versions.node + '\n');
         	break;
