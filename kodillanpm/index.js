@@ -10,6 +10,8 @@ process.stdin.on('readable', function() {
     var input = process.stdin.read();  
     if (input !== null) { 
     	var instruction = input.toString().trim();
+        // odpalanie zdarzenia beforeCommand (z parametrem)
+        emitter.emit('beforeCommand', instruction);
     	switch (instruction) {
     		case '/exit':
         		process.stdout.write('Quitting app!\n');
@@ -27,5 +29,7 @@ process.stdin.on('readable', function() {
     		default:
     			process.stderr.write('Wrong instruction!\n');
 		}
+        // emitowanie zdarzenia afterCommand (bez parametru)
+        emitter.emit('afterCommand');
 	}
 });
