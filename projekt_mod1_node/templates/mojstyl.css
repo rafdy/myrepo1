@@ -1,0 +1,14 @@
+body { 
+	background-color: #e8eae8;
+	color: #5d665b;
+	margin: 50px;
+	font-family: Verdana, Geneva,
+	Arial, sans-serif;
+	font-size: medium;
+	line-height: 180%;
+}
+
+p 
+{ 
+	text-indent: 3em;
+}
