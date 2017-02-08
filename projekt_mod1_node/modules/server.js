@@ -13,13 +13,25 @@ function start() {
     switch (request.url) {
         case '/':
         case '/start': 
-            handlers.welcome(request, response);
+        	try {
+            	handlers.welcome(request, response);
+        	} catch (err) {
+        		console.error(err);
+        	} 
             break;
         case '/upload': 
-            handlers.upload(request, response);
+            try {
+            	handlers.upload(request, response);
+        	} catch (err) {
+        		console.error(err);
+        	} 
             break;
         case '/show':
-        	handlers.show(request, response);
+        	try {
+            	handlers.show(request, response);
+        	} catch (err) {
+        		console.error(err);
+        	}
         break;
         default:
             handlers.error(request, response);
