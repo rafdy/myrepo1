@@ -19,7 +19,7 @@ var upload = function(request, response) {
 var welcome = function(request, response) {
     console.log("Rozpoczynam obsługę żądania welcome.");
     fs.readFile('templates/start.html', function(err, html) {
-    	if (error) throw err;
+    	if (err) throw err;
         response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
         response.write(html);
         response.end();
@@ -41,7 +41,7 @@ var error = function(request, response) {
     response.end(); 
 };
 
-exports = {
+module.exports = {
     upload: upload,
     welcome: welcome,
     show: show,
