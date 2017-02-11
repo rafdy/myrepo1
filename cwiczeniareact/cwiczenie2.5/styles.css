@@ -1,0 +1,26 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #80B8E8;
+}
+
+form.contactForm {
+	font-size: 12pt;
+}
+
+ul.contactsList {
+	line-height: 2;		
+	color: #003868;	
+}
+
+div.contactItem {
+	color: #003877;
+}
+
+p.contactLabel {
+	text-align: justify;
+	font-size: 8pt;
+}
+
+a.contactEmail {
+	font-size: 7pt;
+}
