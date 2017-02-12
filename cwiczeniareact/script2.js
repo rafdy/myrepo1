@@ -64,12 +64,16 @@ var Movie = React.createClass({
   	},
 
     render: function() {
-  	return React.createElement('li', {},
-      React.createElement(MovieTitle, {title: this.props.movieItem.title}),
-      React.createElement(MovieDescription, {desc: this.props.movieItem.desc}),
-      React.createElement(MoviePic, {pic: this.props.movieItem.pic})
-    );
-	}
+  	return (
+      React.createElement('div', {className: 'movieItem'}, 
+        React.createElement('li', {key: this.props.movieItem.id},
+          React.createElement(MovieTitle, {title: this.props.movieItem.title}),
+          React.createElement(MovieDescription, {desc: this.props.movieItem.desc}),
+          React.createElement(MoviePic, {pic: this.props.movieItem.pic})
+        )
+      )
+    )
+	},
 });
 
 var MovieList = React.createClass({
@@ -79,7 +83,7 @@ var MovieList = React.createClass({
 
 	render: function() {
       var moviesElements = this.props.moviesel.map(function(movie) {
-      return React.createElement(Movie, {key: movie.id, movieItem: movie});
+      return React.createElement(Movie, {movieItem: movie});
       });
 
 		React.createElement('div', {},
