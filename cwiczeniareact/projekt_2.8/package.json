@@ -1,7 +1,6 @@
 {
   "name": "wyszukiwarka_gifow",
   "version": "1.0.0",
-  "description": "",
   "main": "index.html",
   "start": "http-server",
   "scripts": {
@@ -11,5 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "http-server": "^0.9.0"
-  }
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
+  },
+  "description": ""
 }
