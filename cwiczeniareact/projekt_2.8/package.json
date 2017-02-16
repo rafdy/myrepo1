@@ -1,0 +1,18 @@
+{
+  "name": "projekt_2.8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.23.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
