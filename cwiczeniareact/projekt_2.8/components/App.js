@@ -38,7 +38,7 @@ handleSearch: function(searchingText) {
         gif: gif,  
         searchingText: searchingText 
       });
-    }).bind(this);
+    }).bind(this)
   },
 
 render: function() {

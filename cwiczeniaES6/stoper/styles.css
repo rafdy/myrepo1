@@ -1,0 +1,16 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #80B8E8;
+}
+
+nav.controls {
+	font-size: 40pt;
+	text-align: center;
+}
+
+div.stopwatch {
+	font-size: 60pt;
+	color: #003877;
+	text-align: center;
+}
+
