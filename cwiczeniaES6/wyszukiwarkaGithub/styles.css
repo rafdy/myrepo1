@@ -1,0 +1,15 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #80B8E8;
+}
+
+form {
+	font-size: 15pt;
+	text-align: center;
+}
+
+div {
+	font-size: 10pt;
+	color: #003877;
+	text-align: center;
+}
