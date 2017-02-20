@@ -70,11 +70,11 @@ class Controls extends React.Component {
 	render() {
 		return (
 		<div className='control'>
-			<a href='#' className='button' id='start' onclick='this.start()'>Start</a>
-      		<a href='#' className='button' id='stop' onclick='this.stop()'>Stop</a>
-      		<a href='#' className='button' id='reset' onclick='this.reset()'>Reset</a>
-      		<a href='#' className='button' id='addList' onclick='this.addList()'>Add To List</a>
-      		<a href='#' className='button' id='clearList' onclick='this.clearList()'>Clear List</a>
+			<a href='#' className='button' id='start' onclick={() => this.start()}>Start</a>
+      		<a href='#' className='button' id='stop' onclick={() => this.stop()}>Stop</a>
+      		<a href='#' className='button' id='reset' onclick={() => this.reset()}>Reset</a>
+      		<a href='#' className='button' id='addList' onclick={() => this.addList()}>Add To List</a>
+      		<a href='#' className='button' id='clearList' onclick={() => this.clearList()}>Clear List</a>
       		<br/>
     		<Stopwatch times={this.times}/>
 			<ul id='resultsList' ref='list'>

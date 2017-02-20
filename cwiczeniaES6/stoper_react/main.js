@@ -1,2 +1,2 @@
-var watch = React.createElement(Controls);
-ReactDOM.render(watch, document.getElementById('app'));
+//var watch = React.createElement(Controls);
+ReactDOM.render(<Controls />, document.getElementById('app'));
