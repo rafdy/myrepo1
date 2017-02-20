@@ -6,19 +6,19 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <nav class="controls">
-      <a href='#' class='button' id='start'>Start</a>
-      <a href="#" class='button' id='stop'>Stop</a>
-      <a href="#" class='button' id='reset'>Reset</a>
-      <a href="#" class='button' id='addList'>Add To List</a>
-      <a href="#" class='button' id='clearList'>Clear List</a>
-    </nav>
-    <div class="stopwatch"></div>
-    <ul class="results"></ul>
+    <div id="app"></div>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.23.0/polyfill.js"></script>
     <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
-    <script type="text/javascript" src="script-compiled.js"></script>
+
+    <script>
+      var Controls, Stopwatch, Results
+    </script>
+    <script type="text/babel" src="components/Results.js"></script>
+    <script type="text/babel" src="components/Stopwatch.js"></script>
+    <script type="text/babel" src="components/Controls.js"></script>
+    <script type="text/babel" src="main.js"></script>
   </body>
 </html>
