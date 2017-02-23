@@ -8,14 +8,9 @@ function pad0(value) {
 
 class Result extends React.Component {
 
-	format(times) {
-        return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
-	}
-
 	render() {
-		var print = this.format(this.props.result)
 		return (
-			<li>{print}</li>
+			<li>{`${pad0(this.props.result.minutes)}:${pad0(this.props.result.seconds)}:${pad0(Math.floor(this.props.result.miliseconds))}`}</li>
 		)
 	}
 }
@@ -36,14 +31,9 @@ class Results extends React.Component {
 
 class Stopwatch extends React.Component {
 
-	format(times) {
-        return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
-	}
-
 	render() {
-		var print = this.format(this.props.times)
 		return (
-	    	<div className={'stopwatch'}>{print}</div>
+	    	<div className={'stopwatch'}>{`${pad0(this.props.times.minutes)}:${pad0(this.props.times.seconds)}:${pad0(Math.floor(this.props.times.miliseconds))}`}</div>
 	    );
 	}
 }
@@ -78,26 +68,15 @@ class Controls extends React.Component {
 	}
 
 	calculate() {
-
-		var minutes, seconds, miliseconds;
-
-     	miliseconds = this.state.times.miliseconds + 1;
-    	if (miliseconds >= 100) {
-        	seconds = this.state.times.seconds+1;
-        	miliseconds = 0;
+    	this.state.times.miliseconds += 1;
+    	if (this.state.times.miliseconds >= 100) {
+        	this.state.times.seconds += 1;
+        	this.state.times.miliseconds = 0;
     	}
-    	if (seconds >= 60) {
-      	  minutes = this.state.times.minutes+1;
-      	  seconds = 0;
+    	if (this.state.times.seconds >= 60) {
+      	  this.state.times.minutes += 1;
+      	  this.state.times.seconds = 0;
     	}
-
-    	this.setState({
-    		times: {
-            	minutes: minutes,
-            	seconds: seconds,
-            	miliseconds: miliseconds
-        	}
-        });
 	}
 
 	start() {
