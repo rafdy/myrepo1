@@ -1,4 +1,7 @@
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+//var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var OptimizeJsPlugin = require('optimize-js-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -21,14 +24,20 @@ module.exports = {
                     options: {
                         modules: true
                     }
-                }   
+                }
             ]
         }
-        ],
-        plugins: [new HtmlWebpackPlugin({
+        ],        
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
             template: 'src/index.html',
             filename: 'index.html',
             inject: 'body'
-        })]    
-    }
+        }),
+        new webpack.optimize.UglifyJsPlugin(),
+        new OptimizeJsPlugin({
+            sourceMap: false
+        })
+        ]
 };
