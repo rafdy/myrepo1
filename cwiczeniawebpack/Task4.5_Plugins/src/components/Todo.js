@@ -3,7 +3,7 @@ import React from 'react';
 const Todo = props => {
 	return (
 		<div>
-			<p onClick={() => props.removeTodo(key)}>{tdel}</p>
+			<p onClick={() => props.removeTodo(props.id)}>{props.tdel}</p>
 		</div>
 	);
 }
