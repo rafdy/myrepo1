@@ -1,11 +1,19 @@
 import React from 'react';
 
 const TodoForm = props => {
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		props.submitForm(props.todoValue);
+	}
+
 	return (
 		<div>
-			<form onSubmit={event => props.addTodo(event.target.value)}>
-					<label htmlFor="searchText">ToDoName:</label>
-					<input type="text" name="ToDoName" defaultValue="type ToDo name here"></input>
+			<form onSubmit={handleSubmit}>
+					<label>Todo name: </label>
+					<input
+						value={props.todoValue}
+						onChange={props.changeInput}
+						type="text"/>
 			</form>
 		</div>
 	);
