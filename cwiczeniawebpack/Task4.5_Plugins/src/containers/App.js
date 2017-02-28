@@ -48,7 +48,7 @@ class App extends React.Component {
 
     render() {
     return (
-        <div className="style.TodoApp">        
+        <div className={style.TodoApp}>        
             <Title title='Aplikacja TODO' />
             <TodoFormPresentation
                 submitForm={value => this.addTodo(value)}
