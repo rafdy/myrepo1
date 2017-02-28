@@ -1,10 +1,11 @@
 import React from 'react';
 import style from './TodoList.css';
+import Todo from './Todo.js'
 
 const TodoList = props => {
 	return (
 		<div>
-			{props.tdlist.map(tdelement => <p key={tdelement.id} className="style.Todos" onClick={() => props.onRemove(tdelement.id)}>{tdelement.text}</p>)}
+			{props.tdlist.map(tdelement => <Todo key={tdelement.id} className="style.Todos" tdel={tdelement.text} removeTodo={props.removeTodo}></Todo>)}
 		</div>
 	);
 }

@@ -3,10 +3,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 //var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var OptimizeJsPlugin = require('optimize-js-plugin');
 
+var env = process.env.NODE_ENV || 'development';
+
 module.exports = {
-    entry: './src/index.js',
-        output: {
-        path: './build',
+    entry: [
+        'react-hot-loader/patch',
+        './src/index.js'
+    ],
+    output: {
+        path: '/build',
         filename: 'app.bundle.js'
     },
     module: {
@@ -34,10 +39,15 @@ module.exports = {
             template: 'src/index.html',
             filename: 'index.html',
             inject: 'body'
-        }),
+        })
+    ]
+};
+
+if (env === 'production') {
+    plugins.push(
         new webpack.optimize.UglifyJsPlugin(),
         new OptimizeJsPlugin({
             sourceMap: false
         })
-        ]
-};
+    );
+}        

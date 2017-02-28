@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title.js';
 import TodoList from '../components/TodoList.js';
+import TodoForm from '../components/TodoForm.js';
 
 class App extends React.Component {
     constructor(props){
@@ -39,7 +40,8 @@ class App extends React.Component {
     return (
         <div className="style.TodoApp">        
             <Title title='Aplikacja TODO' />
-            <TodoList tdlist={this.state.data} onRemove={this.removeTodo}/>
+            <TodoForm addTodo={this.addTodo} />
+            <TodoList tdlist={this.state.data} removeTodo={this.removeTodo} />
         </div>
         );
     }
