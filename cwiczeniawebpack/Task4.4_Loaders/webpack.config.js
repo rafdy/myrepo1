@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -25,10 +26,11 @@ module.exports = {
             ]
         }
         ],
-        plugins: [new HtmlWebpackPlugin({
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
             template: 'src/index.html',
             filename: 'index.html',
             inject: 'body'
-        })]    
-    }
+    })]  
 };

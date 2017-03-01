@@ -4,8 +4,8 @@ import style from './Title.css';
 const Title = props => {
 	return (
 		<div>
-			<h1 className="style.Apptitle">{props.title}</h1>
-			<p className="style.Todos">{props.todolist}</p>
+			<h1 className={style.Apptitle}>{props.title}</h1>
+			<p className={style.Todos}>{`(${props.todolist.length})`}</p>
 		</div>
 	);
 }
