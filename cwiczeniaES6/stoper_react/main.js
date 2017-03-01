@@ -6,13 +6,13 @@ function pad0(value) {
     return result;
 }
 
-class Result extends React.Component {
+const Result = props => {
 
-	render() {
-		return (
-			<li>{`${pad0(this.props.result.minutes)}:${pad0(this.props.result.seconds)}:${pad0(Math.floor(this.props.result.miliseconds))}`}</li>
-		)
-	}
+  const {minutes, seconds, miliseconds} = props.result;
+
+  return (
+    <li>{`${pad0(minutes)}:${pad0(seconds)}:${pad0(Math.floor(miliseconds))}`}</li>
+    )
 }
 
 class Results extends React.Component {
@@ -29,13 +29,13 @@ class Results extends React.Component {
     }
 }
 
-class Stopwatch extends React.Component {
+const Stopwatch = props => {
 
-	render() {
-		return (
-	    	<div className={'stopwatch'}>{`${pad0(this.props.times.minutes)}:${pad0(this.props.times.seconds)}:${pad0(Math.floor(this.props.times.miliseconds))}`}</div>
-	    );
-	}
+  const {minutes, seconds, miliseconds} = props.times;
+
+  return (
+    <div className={'stopwatch'}>{`${pad0(minutes)}:${pad0(seconds)}:${pad0(Math.floor(miliseconds))}`}</div>
+  )
 }
 
 class Controls extends React.Component {
@@ -63,25 +63,36 @@ class Controls extends React.Component {
     }
 
 	step() {
-		if (!this.running) return;
+		if (!this.state.running) return;
     	this.calculate();
 	}
 
 	calculate() {
-    	this.state.times.miliseconds += 1;
-    	if (this.state.times.miliseconds >= 100) {
-        	this.state.times.seconds += 1;
-        	this.state.times.miliseconds = 0;
+
+      let {minutes, seconds, miliseconds} = this.state.times;
+
+    	miliseconds += 1;
+    	if (miliseconds >= 100) {
+        	seconds += 1;
+        	miliseconds = 0;
     	}
-    	if (this.state.times.seconds >= 60) {
-      	  this.state.times.minutes += 1;
-      	  this.state.times.seconds = 0;
+    	if (seconds >= 60) {
+      	  minutes += 1;
+      	  seconds = 0;
     	}
+
+      this.setState({
+        times: {
+              minutes,
+              seconds,
+              miliseconds,
+          }
+        });
 	}
 
 	start() {
-    	if (!this.running) {
-        this.running = true;
+    	if (!this.state.running) {
+        this.state.running = true;
         this.watch = setInterval(() => this.step(), 10);
     	}
 	}
@@ -94,7 +105,7 @@ class Controls extends React.Component {
 	}
 
 	addList() {
-		this.state.results.push(this.state.times)
+    this.state.results = [...this.state.results, this.state.times];
 	}
 
 
@@ -107,11 +118,11 @@ class Controls extends React.Component {
 	render() {
 		return (
 		<div className='controls'>
-			<a href='#' className='button' id='start' onClick={() => this.start()}>Start </a>
-      		<a href='#' className='button' id='stop' onClick={() => this.stop()}>Stop </a>
-      		<a href='#' className='button' id='reset' onClick={() => this.reset()}>Reset </a>
-      		<a href='#' className='button' id='addList' onClick={() => this.addList()}>Add To List </a>
-      		<a href='#' className='button' id='clearList' onClick={() => this.clearList()}>Clear List</a>
+			<a href='#' onClick={() => this.start()}>Start </a>
+      		<a href='#' onClick={() => this.stop()}>Stop </a>
+      		<a href='#' onClick={() => this.reset()}>Reset </a>
+      		<a href='#' onClick={() => this.addList()}>Add To List </a>
+      		<a href='#' onClick={() => this.clearList()}>Clear List</a>
       		<br/>
     		<Stopwatch times={this.state.times}/>
 			<Results results={this.state.results}/>
